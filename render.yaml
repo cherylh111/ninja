@@ -1,5 +1,27 @@
 services:
-  - type: compose
-    name: ningjia
-    dockerCompose:
-      path: docker-compose.yml
+  - type: web
+    name: ninja
+    env: docker
+    dockerfilePath: ./docker/Dockerfile
+    buildCommand: "docker build -t gngpp/ninja:latest ."
+    startCommand: "run"
+    envVars:
+      - key: TZ
+        value: Asia/Shanghai
+      - key: PROXIES
+        value: socks5://warp:10000
+    port: 8080
+    dependsOn:
+      - warp
+  - type: web
+    name: warp
+    env: docker
+    dockerfilePath: ./docker/warp/Dockerfile
+    buildCommand: "docker build -t ghcr.io/gngpp/warp:latest ."
+    startCommand: ""
+  - type: web
+    name: watchtower
+    env: docker
+    dockerfilePath: ./Dockerfile
+    buildCommand: "docker build -t containrrr/watchtower ."
+    startCommand: "--interval 3600 --cleanup"
