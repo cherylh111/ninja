@@ -43,6 +43,5 @@ RUN uname -m
 
 RUN arch
 
-COPY --from=builder /ninja /bin/ninja
 # 启动命令
-ENTRYPOINT ["/bin/ninja"]
+ENTRYPOINT ["ninja"]
