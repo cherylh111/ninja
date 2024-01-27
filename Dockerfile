@@ -14,8 +14,9 @@ RUN latest_url=https://github.com/gngpp/ninja/releases/download/v0.9.13/ninja-0.
     && echo $latest_url \
     && curl -Lo ninjia.tar.gz $latest_url \
     && tar -xzf ninjia.tar.gz --strip-components=1 \
-    && rm ninjia.tar.gz \
     && chmod 777 -R .
+
+#    && rm ninjia.tar.gz 
 
 #RUN rm config.json
 
@@ -24,6 +25,7 @@ RUN latest_url=https://github.com/gngpp/ninja/releases/download/v0.9.13/ninja-0.
 #    cat /etc/secrets/CONFIG_JSON > config.json
 #RUN chmod 777 config.json
 RUN ls -alh
+RUN ls */ -alh
 # 修改PandoraNext的执行权限
 RUN chmod 777 ./ninja
 
