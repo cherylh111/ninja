@@ -44,4 +44,4 @@ RUN uname -m
 RUN arch
 
 # 启动命令
-CMD ["./ninja run"]
+CMD ["./ninja run --pbind 0.0.0.0:8080"]
