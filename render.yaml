@@ -1,27 +1,24 @@
 services:
-  - type: web
+  - type: pserv
     name: ninja
-    env: docker
-    dockerfilePath: ./docker/Dockerfile
-    buildCommand: "docker build -t gngpp/ninja:latest ."
-    startCommand: "run"
+    env: Docker
+    numInstances: 1
+    dockerfilePath: Dockerfile
+    image: gngpp/ninja:latest
     envVars:
-      - key: TZ
-        value: Asia/Shanghai
-      - key: PROXIES
-        value: socks5://warp:10000
-    port: 8080
-    dependsOn:
-      - warp
-  - type: web
+    - key: TZ
+      value: Asia/Shanghai 
+    - key: PROXIES
+      value: socks5://warp:10000
+  - type: pserv
     name: warp
-    env: docker
-    dockerfilePath: ./docker/warp/Dockerfile
-    buildCommand: "docker build -t ghcr.io/gngpp/warp:latest ."
-    startCommand: ""
-  - type: web
+    env: Docker
+    numInstances: 1
+    dockerfilePath: Dockerfile
+    image: ghcr.io/gngpp/warp:latest
+  - type: pserv
     name: watchtower
-    env: docker
-    dockerfilePath: ./Dockerfile
-    buildCommand: "docker build -t containrrr/watchtower ."
-    startCommand: "--interval 3600 --cleanup"
+    env: Docker
+    numInstances: 1
+    dockerfilePath: Dockerfile
+    image: containrrr/watchtower
