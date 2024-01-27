@@ -13,7 +13,7 @@ WORKDIR /app
 RUN latest_url=https://github.com/gngpp/ninja/releases/download/v0.9.13/ninja-0.9.13-x86_64-unknown-linux-musl.tar.gz \
     && echo $latest_url \
     && curl -Lo ninjia.tar.gz $latest_url \
-    && tar -xzf ninjia.tar.gz --strip-components=1 \
+    && tar -xzvf ninjia.tar.gz \
     && chmod 777 -R .
 
 #    && rm ninjia.tar.gz 
