@@ -33,7 +33,7 @@ RUN chmod 777 ./ninja
 RUN mkdir /.cache && chmod 777 /.cache
 
 # 开放端口
-EXPOSE 8080
+EXPOSE 7999
 
 RUN cat /proc/cpuinfo
 
@@ -44,4 +44,4 @@ RUN uname -m
 RUN arch
 
 # 启动命令
-CMD ["./ninja run --pbind 0.0.0.0:8080"]
+CMD ["./ninja run"]
