@@ -43,5 +43,6 @@ RUN uname -m
 
 RUN arch
 
+COPY --from=builder /ninja /bin/ninja
 # 启动命令
-CMD ["./ninja run"]
+ENTRYPOINT ["/bin/ninja"]
