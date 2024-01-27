@@ -1,5 +1,5 @@
 services:
-  - type: web
+  - type: compose
     name: ningjia
     dockerCompose:
       path: docker-compose.yml
