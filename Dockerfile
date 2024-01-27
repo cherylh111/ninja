@@ -25,7 +25,7 @@ RUN latest_url=https://github.com/gngpp/ninja/releases/download/v0.9.13/ninja-0.
 #RUN chmod 777 config.json
 
 # 修改PandoraNext的执行权限
-RUN chmod 777 ./PandoraNext
+RUN chmod 777 ./ninja
 
 # 创建全局缓存目录并提供最宽松的权限
 RUN mkdir /.cache && chmod 777 /.cache
