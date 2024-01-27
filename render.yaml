@@ -1,3 +1,5 @@
 services:
-  - name: web
-    env: docker-compose.yml
+  - type: web
+    name: ningjia
+    dockerCompose:
+      path: docker-compose.yml
